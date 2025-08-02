@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Sundli - Senior Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#121212',
+                        'card-bg': '#1E1E1E',
+                        'primary': '#BB86FC',
+                        'primary-variant': '#3700B3',
+                        'secondary': '#03DAC6',
+                        'text-main': '#E0E0E0',
+                        'text-secondary': '#A0A0A0',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 6s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1E1E1E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #BB86FC;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a86ef6;
+        }
+        /* Style for the particles.js container */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Place it behind all other content */
+            background-color: #121212;
+        }
+        /* Ensure main content has a transparent background to see particles */
+        body {
+            background-color: transparent;
+        }
+        main, footer {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg font-inter text-text-main antialiased">
+
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header class="bg-card-bg/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">VS</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="hover:text-primary transition-colors duration-300">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors duration-300">About</a>
+                <a href="#experience" class="hover:text-primary transition-colors duration-300">Experience</a>
+                <a href="#projects" class="hover:text-primary transition-colors duration-300">Projects</a>
+                <a href="#contact" class="bg-primary text-dark-bg px-4 py-2 rounded-md hover:bg-primary-variant transition-colors duration-300 font-semibold">Contact Me</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card-bg">
+            <a href="#home" class="block px-6 py-3 hover:bg-dark-bg hover:text-primary transition-colors duration-300">Home</a>
+            <a href="#about" class="block px-6 py-3 hover:bg-dark-bg hover:text-primary transition-colors duration-300">About</a>
+            <a href="#experience" class="block px-6 py-3 hover:bg-dark-bg hover:text-primary transition-colors duration-300">Experience</a>
+            <a href="#projects" class="block px-6 py-3 hover:bg-dark-bg hover:text-primary transition-colors duration-300">Projects</a>
+            <a href="#contact" class="block px-6 py-3 hover:bg-dark-bg hover:text-primary transition-colors duration-300">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Hi, I'm Vivek Sundli</h1>
+                    <h2 class="text-2xl md:text-3xl text-primary font-semibold mb-6">Senior Software Engineer</h2>
+                    <p class="text-text-secondary mb-8 max-w-lg">
+                        I design and deploy scalable, event-driven backend systems using Java, Spring Boot, and distributed microservices. I have a proven track record of leading end-to-end development of high-performance APIs and building resilient cloud-native applications on AWS and Kubernetes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-primary text-dark-bg px-6 py-3 rounded-md hover:bg-primary-variant transition-all duration-300 font-bold shadow-lg shadow-primary/20">View My Work</a>
+                        <a href="https://github.com/viveksundli" target="_blank" class="bg-card-bg text-text-main px-6 py-3 rounded-md hover:bg-gray-700 transition-all duration-300 font-bold flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-card-bg p-2 shadow-2xl shadow-primary/20 relative overflow-hidden">
+                        <img src="https://placehold.co/400x400/1E1E1E/BB86FC?text=VS" alt="Vivek Sundli" class="rounded-full w-full h-full object-cover">
+                        <div class="absolute inset-0 border-4 border-primary rounded-full animate-spin-slow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">About Me</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Professional Summary</h3>
+                    <p class="text-text-secondary mb-4">
+                        As a Senior Software Engineer, I specialize in creating scalable, event-driven backend systems. My expertise lies in using Java, Spring Boot, and microservices architecture to build high-performance APIs. I am passionate about constructing resilient, cloud-native applications on AWS and Kubernetes, and I thrive on mentoring fellow engineers and delivering production-grade solutions that drive business goals.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Java</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Kotlin</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Spring Boot</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Microservices</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">AWS</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Docker</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Kubernetes</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Kafka</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">SQL</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">MongoDB</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Jenkins</span>
+                        <span class="bg-card-bg px-4 py-2 rounded-full text-sm font-medium">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Work Experience</h2>
+            <div class="max-w-3xl mx-auto relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-5 top-0 h-full w-0.5 bg-card-bg"></div>
+                <!-- Experience Item 1 -->
+                <div class="mb-8 pl-12 relative">
+                    <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
+                    <p class="text-sm text-primary font-semibold">Mar 2024 - Present</p>
+                    <h3 class="text-xl font-bold">Software Engineer - Senior 1</h3>
+                    <p class="text-text-secondary mb-2">FedEx Corp | Hyderabad, India</p>
+                    <ul class="list-disc list-inside text-text-secondary text-sm space-y-1">
+                        <li>Led modernization of legacy systems into scalable Java/Kotlin microservices on AWS.</li>
+                        <li>Architected a JSON-ENS microservice (Spring Boot, Kafka) for the FDX portal.</li>
+                        <li>Delivered FedEx Webhooks project with high-availability RESTful APIs.</li>
+                    </ul>
+                </div>
+                <!-- Experience Item 2 -->
+                <div class="mb-8 pl-12 relative">
+                    <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
+                    <p class="text-sm text-primary font-semibold">May 2023 - Feb 2024</p>
+                    <h3 class="text-xl font-bold">Senior Software Engineer</h3>
+                    <p class="text-text-secondary mb-2">Blu Smart Mobility | Gurgaon, India</p>
+                    <ul class="list-disc list-inside text-text-secondary text-sm space-y-1">
+                        <li>Re-architected a Ticket Management System, reducing response latency by 20%.</li>
+                        <li>Optimized data access patterns with Hibernate and MySQL tuning.</li>
+                        <li>Automated CI/CD pipelines, reducing deployment time by 50%.</li>
+                    </ul>
+                </div>
+                <!-- Experience Item 3 -->
+                <div class="mb-8 pl-12 relative">
+                    <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
+                    <p class="text-sm text-primary font-semibold">Mar 2022 - Apr 2023</p>
+                    <h3 class="text-xl font-bold">Software Development Engineer</h3>
+                    <p class="text-text-secondary mb-2">Groupon | Bangalore, India</p>
+                    <ul class="list-disc list-inside text-text-secondary text-sm space-y-1">
+                        <li>Owned high-availability merchant services supporting millions of daily transactions.</li>
+                        <li>Improved Card-linked-Order Service performance by 27% through caching.</li>
+                        <li>Implemented asynchronous, non-blocking APIs for payment microservices.</li>
+                    </ul>
+                </div>
+                <!-- Experience Item 4 -->
+                <div class="pl-12 relative">
+                    <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
+                    <p class="text-sm text-primary font-semibold">Aug 2020 - Mar 2022</p>
+                    <h3 class="text-xl font-bold">R&D Engineer</h3>
+                    <p class="text-text-secondary mb-2">Nokia | Bangalore, India</p>
+                    <ul class="list-disc list-inside text-text-secondary text-sm space-y-1">
+                        <li>Developed core components for Unified Data Management (UDM) in 5G-Core.</li>
+                        <li>Developed a JSON Validation tool, reducing manual test time by 48 hours.</li>
+                        <li>Migrated components to containerized environments (Docker, Kubernetes).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My Projects</h2>
+            <p class="text-center text-text-secondary mb-12 max-w-3xl mx-auto">Here are some of the projects I'm proud of. Each one was a unique challenge and a great learning experience.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-primary/30">
+                    <img src="https://placehold.co/600x400/121212/03DAC6?text=Project+One" alt="Project One" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-text-secondary mb-4 text-sm">A full-featured e-commerce site with product listings, a shopping cart, and a secure checkout process.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">Node.js</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <a href="#" class="text-primary hover:underline">Live Demo</a>
+                            <a href="#" class="text-primary hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-primary/30">
+                    <img src="https://placehold.co/600x400/121212/BB86FC?text=Project+Two" alt="Project Two" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Management App</h3>
+                        <p class="text-text-secondary mb-4 text-sm">A collaborative task manager with real-time updates, user authentication, and a drag-and-drop interface.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">Vue.js</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">Firebase</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">Tailwind CSS</span>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <a href="#" class="text-primary hover:underline">Live Demo</a>
+                            <a href="#" class="text-primary hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-primary/30">
+                    <img src="https://placehold.co/600x400/121212/E0E0E0?text=Project+Three" alt="Project Three" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                        <p class="text-text-secondary mb-4 text-sm">This very portfolio, designed and built from scratch to showcase my skills and projects in a clean, modern way.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">HTML5</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-dark-bg text-secondary text-xs font-semibold px-2.5 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <a href="#" class="text-primary hover:underline">Live Demo</a>
+                            <a href="#" class="text-primary hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Get In Touch</h2>
+            <p class="text-center text-text-secondary mb-12 max-w-3xl mx-auto">I'm currently open to new opportunities. If you have a project in mind or just want to say hi, feel free to reach out!</p>
+            
+            <div class="max-w-xl mx-auto bg-card-bg p-8 rounded-lg shadow-lg">
+                <form action="#" method="POST">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-text-secondary">Your Name</label>
+                        <input type="text" id="name" name="name" class="bg-dark-bg border border-gray-600 text-text-main text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-text-secondary">Your Email</label>
+                        <input type="email" id="email" name="email" class="bg-dark-bg border border-gray-600 text-text-main text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-text-secondary">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="bg-dark-bg border border-gray-600 text-text-main text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Let's build something amazing together..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-dark-bg font-bold py-3 px-5 rounded-lg hover:bg-primary-variant transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-card-bg focus:ring-primary">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card-bg mt-12">
+        <div class="container mx-auto px-6 py-6 text-center text-text-secondary">
+            <p>&copy; 2025 Vivek Sundli. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed & Built with <span class="text-primary">&hearts;</span></p>
+        </div>
+    </footer>
+
+    <!-- particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // particles.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+</body>
+</html>
+
