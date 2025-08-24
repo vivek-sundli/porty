@@ -7,36 +7,38 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Replaced Inter with Press Start 2P for a pixelated font style -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class', // Enable dark mode based on a class
             theme: {
                 extend: {
                     fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
+                        // Changed font family to 'pixel' and set it to 'Press Start 2P'
+                        pixel: ['"Press Start 2P"', 'cursive'],
                     },
                     colors: {
-                        // Light Mode Colors
-                        'light-bg': '#FFFBEB', // Light yellow
-                        'light-text': '#1E3A8A', // Dark blue
-                        'light-card-bg': '#FEFDF6',
-                        'light-border': '#D1D5DB',
-                        'light-primary': '#4F46E5', // Indigo for primary action
-                        'light-primary-hover': '#4338CA',
-                        'light-secondary': '#2563EB', // Blue for secondary elements
+                        // Light Mode Colors (White Theme)
+                        'light-bg': '#FFFFFF',
+                        'light-text': '#000000',
+                        'light-card-bg': '#F5F5F5',
+                        'light-border': '#E0E0E0',
+                        'light-primary': '#000000',
+                        'light-primary-hover': '#333333',
+                        'light-secondary': '#555555',
                         'light-secondary-text': '#FFFFFF',
-                        'light-text-secondary': '#374151', // A slightly lighter text for secondary info
+                        'light-text-secondary': '#666666',
 
-                        // Dark Mode Colors
-                        'dark-bg': '#121212',
-                        'dark-text': '#E0E0E0',
-                        'dark-card-bg': '#1E1E1E',
-                        'dark-border': '#2c2c2c',
-                        'dark-primary': '#BB86FC',
-                        'dark-primary-hover': '#a86ef6',
-                        'dark-secondary': '#03DAC6',
-                        'dark-secondary-text': '#121212',
+                        // Dark Mode Colors (Black Theme)
+                        'dark-bg': '#000000',
+                        'dark-text': '#FFFFFF',
+                        'dark-card-bg': '#111111',
+                        'dark-border': '#333333',
+                        'dark-primary': '#FFFFFF',
+                        'dark-primary-hover': '#CCCCCC',
+                        'dark-secondary': '#AAAAAA',
+                        'dark-secondary-text': '#000000',
                         'dark-text-secondary': '#A0A0A0',
                     },
                     animation: {
@@ -52,20 +54,20 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #FEFDF6;
+            background: #F5F5F5;
         }
         .dark ::-webkit-scrollbar-track {
-            background: #1E1E1E;
+            background: #111111;
         }
         ::-webkit-scrollbar-thumb {
-            background: #4F46E5;
+            background: #000000;
             border-radius: 4px;
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: #BB86FC;
+            background: #FFFFFF;
         }
         .dark ::-webkit-scrollbar-thumb:hover {
-            background: #a86ef6;
+            background: #CCCCCC;
         }
         /* Style for the particles.js container */
         #particles-js {
@@ -84,14 +86,17 @@
             position: relative;
             z-index: 1;
         }
+        /* Added a style to prevent harsh edges on pixel fonts */
+        body {
+            image-rendering: pixelated;
+        }
     </style>
 </head>
-<body class="font-inter bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text antialiased transition-colors duration-300">
+<!-- Updated body to use the new font-pixel class -->
+<body class="font-pixel bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text antialiased transition-colors duration-300">
 
-    <!-- Particles.js container -->
     <div id="particles-js"></div>
     
-    <!-- Theme Toggle Button -->
     <button id="theme-toggle" class="fixed top-4 right-4 p-2 rounded-full text-light-text dark:text-dark-text bg-light-card-bg dark:bg-dark-card-bg border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary z-50">
         <svg id="theme-toggle-dark-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -101,17 +106,16 @@
         </svg>
     </button>
 
-    <!-- Header -->
     <header class="bg-light-card-bg/80 dark:bg-dark-card-bg/80 backdrop-blur-sm sticky top-0 z-40">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-light-primary dark:text-dark-primary">VS</a>
-            <div class="hidden md:flex space-x-8 items-center">
+
+            <div class="hidden md:flex space-x-8 items-center text-xs">
                 <a href="#home" class="hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Home</a>
                 <a href="#about" class="hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">About</a>
                 <a href="#experience" class="hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Experience</a>
                 <a href="#projects" class="hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Projects</a>
                 <a href="https://drive.google.com/file/d/1RGBUdmg33URDDRDb0V_idKheGo3xcDGG/view" target="_blank" rel="noopener noreferrer" class="hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Resume</a>
-                <a href="#contact" class="bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg px-4 py-2 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-colors duration-300 font-semibold">Contact Me</a>
+                <a href="#contact" class="bg-light-primary dark:bg-dark-primary text-light-bg dark:text-dark-bg px-4 py-2 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-colors duration-300 font-semibold">Contact Me</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-2xl">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -119,8 +123,7 @@
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-light-card-bg dark:bg-dark-card-bg">
+        <div id="mobile-menu" class="hidden md:hidden bg-light-card-bg dark:bg-dark-card-bg text-sm">
             <a href="#home" class="block px-6 py-3 hover:bg-light-bg dark:hover:bg-dark-bg hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Home</a>
             <a href="#about" class="block px-6 py-3 hover:bg-light-bg dark:hover:bg-dark-bg hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">About</a>
             <a href="#experience" class="block px-6 py-3 hover:bg-light-bg dark:hover:bg-dark-bg hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-300">Experience</a>
@@ -132,17 +135,16 @@
 
     <main class="container mx-auto px-6 py-12">
 
-        <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center justify-center">
             <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Hi, I'm Vivek Sundli</h1>
-                <h2 class="text-2xl md:text-3xl text-light-primary dark:text-dark-primary font-semibold mb-6">Senior Software Engineer</h2>
-                <p class="light-text-secondary dark:dark-text-secondary mb-8 max-w-2xl mx-auto">
+                <h1 class="text-2xl md:text-4xl font-bold mb-4 leading-tight">Hi, I'm Vivek Sundli</h1>
+                <h2 class="text-lg md:text-xl text-light-text-secondary dark:text-dark-text-secondary font-semibold mb-6 leading-relaxed">Senior Software Engineer</h2>
+                <p class="text-xs md:text-sm text-light-text-secondary dark:text-dark-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
                     I design and deploy scalable, event-driven backend systems using Java, Spring Boot, and distributed microservices. I have a proven track record of leading end-to-end development of high-performance APIs and building resilient cloud-native applications on AWS and Kubernetes.
                 </p>
-                <div class="flex justify-center space-x-4">
-                    <a href="#experience" class="bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg px-6 py-3 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-all duration-300 font-bold shadow-lg dark:shadow-dark-primary/20">View My Work</a>
-                    <a href="https://github.com/vivek-sundli" target="_blank" class="bg-light-card-bg dark:bg-dark-card-bg px-6 py-3 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 font-bold flex items-center space-x-2 border border-light-border dark:border-dark-border">
+                <div class="flex justify-center space-x-4 text-sm">
+                    <a href="#experience" class="bg-light-primary dark:bg-dark-primary text-light-bg dark:text-dark-bg px-6 py-3 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-all duration-300 font-bold shadow-lg">View My Work</a>
+                    <a href="https://github.com/vivek-sundli" target="_blank" class="bg-light-card-bg dark:bg-dark-card-bg px-6 py-3 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-all duration-300 font-bold flex items-center space-x-2 border border-light-border dark:border-dark-border">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         <span>GitHub</span>
                     </a>
@@ -150,9 +152,8 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-12">About Me</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-12 items-center">
                 
                 <div class="md:col-span-1">
@@ -160,78 +161,73 @@
                 </div>
 
                 <div class="md:col-span-2">
-                    <h3 class="text-2xl font-bold mb-4">Professional Summary</h3>
-                    <p class="light-text-secondary dark:dark-text-secondary mb-6">
+                    <h3 class="text-lg font-bold mb-4">Professional Summary</h3>
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-6 leading-relaxed">
                         As a Senior Software Engineer, I specialize in creating scalable, event-driven backend systems. My expertise lies in using Java, Spring Boot, and microservices architecture to build high-performance APIs. I am passionate about constructing resilient, cloud-native applications on AWS and Kubernetes, and I thrive on mentoring fellow engineers and delivering production-grade solutions that drive business goals.
                     </p>
-                    <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Java</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Kotlin</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Spring Boot</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Microservices</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">AWS</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Docker</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Kubernetes</span>
-                        <span class="bg-light-card-bg dark:bg-dark-card-bg px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border">Kafka</span>
+                    <h3 class="text-lg font-bold mb-4">Technical Skills</h3>
+                    <div class="flex flex-wrap gap-3 text-xs">
+                        <!-- Added hover glow effect to each skill -->
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Java</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Kotlin</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Spring Boot</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Microservices</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">AWS</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Docker</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Kubernetes</span>
+                        <span class="bg-light-bg dark:bg-dark-bg px-4 py-2 rounded-full font-medium border border-light-border dark:border-dark-border transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] cursor-pointer">Kafka</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Work Experience</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-12">Work Experience</h2>
             <div class="max-w-3xl mx-auto relative">
-                <!-- Vertical Line -->
-                <div class="absolute left-5 top-0 h-full w-0.5 bg-light-border dark:bg-dark-card-bg"></div>
+                <div class="absolute left-5 top-0 h-full w-0.5 bg-light-border dark:bg-dark-border"></div>
                 
-                <!-- Experience Item 1 -->
                 <div class="mb-10 pl-12 relative">
                     <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-light-primary dark:bg-dark-primary -translate-x-1/2 border-4 border-light-bg dark:border-dark-bg"></div>
-                    <p class="text-sm text-light-primary dark:text-dark-primary font-semibold">Mar 2024 - Present</p>
-                    <h3 class="text-xl font-bold">Software Engineer - Senior 1</h3>
-                    <p class="light-text-secondary dark:dark-text-secondary mb-3">FedEx Corp | Hyderabad, India</p>
-                    <ul class="list-disc list-inside light-text-secondary dark:dark-text-secondary text-sm space-y-2">
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary font-semibold">Mar 2024 - Present</p>
+                    <h3 class="text-base font-bold">Software Engineer - Senior 1</h3>
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-3">FedEx Corp | Hyderabad, India</p>
+                    <ul class="list-disc list-inside text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-2 leading-relaxed">
                         <li>Led the modernization of legacy systems into highly scalable, fault-tolerant Java/Kotlin microservices on AWS (S3, Lambda), improving performance and reducing downtime.</li>
                         <li>Architected and implemented a JSON-ENS microservice (Spring Boot, Kafka) for Project Sirius/FDX portal, enabling real-time shipper capabilities in a large-scale distributed environment.</li>
                         <li>Delivered FedEx Webhooks project, designing RESTful APIs with high availability and low-latency SLAs, utilizing Docker and Kubernetes for seamless deployments.</li>
                     </ul>
                 </div>
 
-                <!-- Experience Item 2 -->
                 <div class="mb-10 pl-12 relative">
                     <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-light-primary dark:bg-dark-primary -translate-x-1/2 border-4 border-light-bg dark:border-dark-bg"></div>
-                    <p class="text-sm text-light-primary dark:text-dark-primary font-semibold">May 2023 - Feb 2024</p>
-                    <h3 class="text-xl font-bold">Senior Software Engineer</h3>
-                    <p class="light-text-secondary dark:dark-text-secondary mb-3">Blu Smart Mobility | Gurgaon, India</p>
-                    <ul class="list-disc list-inside light-text-secondary dark:dark-text-secondary text-sm space-y-2">
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary font-semibold">May 2023 - Feb 2024</p>
+                    <h3 class="text-base font-bold">Senior Software Engineer</h3>
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-3">Blu Smart Mobility | Gurgaon, India</p>
+                    <ul class="list-disc list-inside text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-2 leading-relaxed">
                         <li>Re-architected and deployed a Ticket Management System, improving inter-service communication and reducing average response latency by 20%.</li>
                         <li>Automated CI/CD pipelines (Jenkins, GitHub Actions), achieving a 50% reduction in deployment time and increased release frequency.</li>
                         <li>Proactively resolved complex production issues using Datadog, ELK Stack, and log correlation, improving system uptime and observability.</li>
                     </ul>
                 </div>
 
-                <!-- Experience Item 3 -->
                 <div class="mb-10 pl-12 relative">
                     <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-light-primary dark:bg-dark-primary -translate-x-1/2 border-4 border-light-bg dark:border-dark-bg"></div>
-                    <p class="text-sm text-light-primary dark:text-dark-primary font-semibold">Mar 2022 - Apr 2023</p>
-                    <h3 class="text-xl font-bold">Software Development Engineer</h3>
-                    <p class="light-text-secondary dark:dark-text-secondary mb-3">Groupon | Bangalore, India</p>
-                     <ul class="list-disc list-inside light-text-secondary dark:dark-text-secondary text-sm space-y-2">
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary font-semibold">Mar 2022 - Apr 2023</p>
+                    <h3 class="text-base font-bold">Software Development Engineer</h3>
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-3">Groupon | Bangalore, India</p>
+                     <ul class="list-disc list-inside text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-2 leading-relaxed">
                         <li>Owned high-availability merchant services using Java, Spring Boot, and Kafka, supporting millions of transactions daily.</li>
                         <li>Improved Card-linked-Order Service performance by 27% through caching strategy.</li>
                         <li>Implemented asynchronous, non-blocking APIs for payment microservices, improving throughput and reducing latency under high loads.</li>
                     </ul>
                 </div>
                 
-                <!-- Experience Item 4 -->
                 <div class="pl-12 relative">
                     <div class="absolute left-5 top-1 w-4 h-4 rounded-full bg-light-primary dark:bg-dark-primary -translate-x-1/2 border-4 border-light-bg dark:border-dark-bg"></div>
-                    <p class="text-sm text-light-primary dark:text-dark-primary font-semibold">Aug 2020 - Mar 2022</p>
-                    <h3 class="text-xl font-bold">R&D Engineer</h3>
-                    <p class="light-text-secondary dark:dark-text-secondary mb-3">Nokia | Bangalore, India</p>
-                     <ul class="list-disc list-inside light-text-secondary dark:dark-text-secondary text-sm space-y-2">
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary font-semibold">Aug 2020 - Mar 2022</p>
+                    <h3 class="text-base font-bold">R&D Engineer</h3>
+                    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-3">Nokia | Bangalore, India</p>
+                     <ul class="list-disc list-inside text-xs text-light-text-secondary dark:text-dark-text-secondary space-y-2 leading-relaxed">
                         <li>Developed core components for Unified Data Management (UDM) in 5G-Core.</li>
                         <li>Developed a JSON Validation tool, reducing manual test execution time by 48 hours.</li>
                         <li>Migrated components to containerized environments (Docker, Kubernetes).</li>
@@ -240,72 +236,54 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">My Projects</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-12">My Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1: NexusQ -->
-                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-light-primary/20 dark:hover:shadow-dark-primary/30 border border-light-border dark:border-dark-border">
-                    <img src="https://placehold.co/600x400/1E3A8A/FFFBEB?text=NexusQ" alt="NexusQ Distributed Task Queue" class="w-full h-48 object-cover">
+                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-500/30 border border-light-border dark:border-dark-border">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=NexusQ" alt="NexusQ Distributed Task Queue" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">NexusQ: Distributed Task Queue</h3>
-                        <p class="light-text-secondary dark:dark-text-secondary mb-4 text-sm">A high-throughput, distributed task queue system built with Java, Kafka, and Redis. Designed for asynchronous job processing and ensuring fault-tolerance. Deployed on Kubernetes.</p>
-                        <div class="flex justify-end space-x-4">
-                            
-                        </div>
+                        <h3 class="text-base font-bold mb-2">NexusQ: Distributed Task Queue</h3>
+                        <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-4 leading-relaxed">A high-throughput, distributed task queue system built with Java, Kafka, and Redis. Designed for asynchronous job processing and ensuring fault-tolerance. Deployed on Kubernetes.</p>
                     </div>
                 </div>
-                <!-- Project Card 2: TradeAlert -->
-                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-light-primary/20 dark:hover:shadow-dark-primary/30 border border-light-border dark:border-dark-border">
-                    <img src="https://placehold.co/600x400/1E3A8A/FFFBEB?text=TradeAlert" alt="TradeAlert Real-Time Stock Alert System" class="w-full h-48 object-cover">
+                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-500/30 border border-light-border dark:border-dark-border">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=TradeAlert" alt="TradeAlert Real-Time Stock Alert System" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">TradeAlert: Real-Time Stock Alert System</h3>
-                        <p class="light-text-secondary dark:dark-text-secondary mb-4 text-sm">Event-driven system for real-time stock price alerts. Ingests live market data via WebSockets, processes it using a Kafka streaming pipeline, and sends instant notifications.</p>
-                        <div class="flex justify-end space-x-4">
-                            
-                        </div>
+                        <h3 class="text-base font-bold mb-2">TradeAlert: Real-Time Stock Alert System</h3>
+                        <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-4 leading-relaxed">Event-driven system for real-time stock price alerts. Ingests live market data via WebSockets, processes it using a Kafka streaming pipeline, and sends instant notifications.</p>
                     </div>
                 </div>
-                <!-- Project Card 3: OmniCart -->
-                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-light-primary/20 dark:hover:shadow-dark-primary/30 border border-light-border dark:border-dark-border">
-                    <img src="https://placehold.co/600x400/1E3A8A/FFFBEB?text=OmniCart" alt="OmniCart E-Commerce Backend" class="w-full h-48 object-cover">
+                <div class="bg-light-card-bg dark:bg-dark-card-bg rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-500/30 border border-light-border dark:border-dark-border">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=OmniCart" alt="OmniCart E-Commerce Backend" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">OmniCart: Cloud-Native E-Commerce Backend</h3>
-                        <p class="light-text-secondary dark:dark-text-secondary mb-4 text-sm">A complete backend for an e-commerce platform using microservices. Features services for products, orders, and payments, utilizing Spring Boot, Docker, and Kubernetes on AWS.</p>
-                        <div class="flex justify-end space-x-4">
-                            
-                        </div>
+                        <h3 class="text-base font-bold mb-2">OmniCart: Cloud-Native E-Commerce Backend</h3>
+                        <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-4 leading-relaxed">A complete backend for an e-commerce platform using microservices. Features services for products, orders, and payments, utilizing Spring Boot, Docker, and Kubernetes on AWS.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-12">Get In Touch</h2>
             <div class="max-w-xl mx-auto bg-light-card-bg dark:bg-dark-card-bg p-8 rounded-lg shadow-lg border border-light-border dark:border-dark-border">
-                <p class="text-center text-light-text-secondary dark:text-dark-text-secondary mb-8">
+                <p class="text-center text-xs text-light-text-secondary dark:text-dark-text-secondary mb-8 leading-relaxed">
                     Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.
                 </p>
-                <form action="https://formspree.io/f/xyzpvvwj" method="POST">
-                    <!-- Name Input -->
+                <form action="https://formspree.io/f/xyzpvvwj" method="POST" class="text-sm">
                     <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary">Your Name</label>
+                        <label for="name" class="block mb-2 font-medium text-light-text-secondary dark:text-dark-text-secondary">Your Name</label>
                         <input type="text" name="name" id="name" class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary" required>
                     </div>
-                    <!-- Email Input -->
                     <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary">Your Email</label>
+                        <label for="email" class="block mb-2 font-medium text-light-text-secondary dark:text-dark-text-secondary">Your Email</label>
                         <input type="email" name="_replyto" id="email" class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary" required>
                     </div>
-                    <!-- Message Textarea -->
                     <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary">Message</label>
+                        <label for="message" class="block mb-2 font-medium text-light-text-secondary dark:text-dark-text-secondary">Message</label>
                         <textarea name="message" id="message" rows="5" class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-md focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary" required></textarea>
                     </div>
-                    <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg px-8 py-3 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-all duration-300 font-bold shadow-lg dark:shadow-dark-primary/20">
+                        <button type="submit" class="bg-light-primary dark:bg-dark-primary text-light-bg dark:text-dark-bg px-8 py-3 rounded-md hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover transition-all duration-300 font-bold shadow-lg">
                             Send Message
                         </button>
                     </div>
@@ -315,15 +293,13 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-light-card-bg dark:bg-dark-card-bg mt-12 border-t border-light-border dark:border-dark-border">
-        <div class="container mx-auto px-6 py-6 text-center light-text-secondary dark:dark-text-secondary">
+        <div class="container mx-auto px-6 py-6 text-center text-xs text-light-text-secondary dark:text-dark-text-secondary">
             <p>&copy; 2025 Vivek Sundli. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Designed & Built with <span class="text-light-primary dark:text-dark-primary">&hearts;</span></p>
+            <p class="text-xs mt-2">Designed & Built with <span class="text-red-500">&hearts;</span></p>
         </div>
     </footer>
 
-    <!-- particles.js library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
@@ -334,7 +310,7 @@
         const particlesContainer = document.getElementById('particles-js');
 
         const lightThemeParticles = {
-            "particles": { "number": { "value": 50 }, "color": { "value": "#1E3A8A" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#1E3A8A", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" } },
+            "particles": { "number": { "value": 50 }, "color": { "value": "#000000" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#000000", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" } },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } } }
         };
 
